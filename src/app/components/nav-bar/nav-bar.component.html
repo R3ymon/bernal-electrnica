@@ -1,4 +1,8 @@
 <div
+  [ngClass]="{
+    'bg-blue-950 bg-opacity-60': !scrolled,
+    'bg-blue-950 bg-opacity-100 shadow-lg': scrolled
+  }"
   class="fixed top-0 left-0 w-full z-10 flex items-center justify-between p-4 text-white font-sans font-semibold bg-opacity-60 bg-blue-950"
 >
   <!-- Logo -->
@@ -54,14 +58,14 @@
       <li>
         <a
           class="hover:border-2 border-black transition duration-300 rounded p-1 md:p-2"
-          href="#Contacto"
+          routerLink="/contacto"
           >Contacto</a
         >
       </li>
       <li>
         <a
           class="hover:border-2 border-black transition duration-300 rounded p-1 md:p-2"
-          href="#powerwall"
+          href=""
           >About</a
         >
       </li>
@@ -96,14 +100,17 @@
 
   <!-- Menú desplegable en pantallas pequeñas -->
   <nav
-    [ngClass]="{ hidden: !menuOpen, block: menuOpen }"
-    class="absolute left-0 top-full mt-2 w-full bg-blue-950 text-white flex-col items-center space-y-4 py-4 md:hidden"
+    [ngClass]="{
+      'opacity-0 translate-x-full': !menuOpen,
+      'opacity-100 translate-x-0': menuOpen
+    }"
+    class="absolute left-0 top-full mt-2 w-full bg-blue-950 text-white flex-col items-center space-y-4 py-4 md:hidden transition-all duration-700 ease-in-out"
   >
     <ul class="text-center">
       <li>
         <a
           class="block hover:bg-yellow-300 hover:text-black p-2 transition duration-300"
-          href="#model-s"
+          routerLink="/"
           >Home</a
         >
       </li>
@@ -124,7 +131,7 @@
       <li>
         <a
           class="block hover:bg-yellow-300 hover:text-black p-2 transition duration-300"
-          href="#carga"
+          routerLink="/contacto"
           >Contacto</a
         >
       </li>
